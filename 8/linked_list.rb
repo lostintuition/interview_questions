@@ -50,6 +50,6 @@ class Node
   end
 
   def to_s
-    "#{@value}, #{@next}\n"
+    "#{@value}"
   end
 end

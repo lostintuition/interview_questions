@@ -16,9 +16,35 @@ def compute_even_odd_merge(list)
   if (list.head == nil || list.head.next == nil)
     return evens
   end
-  return evens
+  odds = list.head.next
+  current_element = odds.next
+  evens_tail, odds_tail = accumulate_evens_and_odds(evens, odds, current_element, true)
+  evens_tail.next = odds
+  evens
 end
 
-linked_list = LinkedList.create(["0", "1", "2", "3", "4"])
+def accumulate_evens_and_odds(evens, odds, current_element, is_even)
+  if (current_element == nil)
+    odds.next = nil
+    return [evens, odds]
+  end
 
-puts compute_even_odd_merge(linked_list)
+  if (is_even)
+    evens.next = current_element
+    evens = evens.next
+  else
+    odds.next = current_element
+    odds = odds.next
+  end
+
+  return accumulate_evens_and_odds(evens, odds, current_element.next, !is_even)
+end
+
+linked_list = LinkedList.create(["0", "1", "2", "3", "4", "5"])
+
+list = compute_even_odd_merge(linked_list)
+current = list
+while (current != nil)
+  puts current
+  current = current.next
+end
