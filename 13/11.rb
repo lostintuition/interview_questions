@@ -16,7 +16,7 @@ def longest_contained_range(array)
     upper_bound = get_upper_bound(hash, current + 1)
     lower_bound = get_lower_bound(hash, current - 1)
 
-    count = [count, upper_bound - lower_bound - 1].max
+    count = [count, upper_bound - lower_bound - 2].max
   end
 
   count
