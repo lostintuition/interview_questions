@@ -1,4 +1,4 @@
-package sixteen;
+package interviews.questions.epi.sixteen;
 
 import base.InterviewQuestion;
 

@@ -1,4 +1,4 @@
-package fifteen;
+package interviews.questions.epi.fifteen;
 
 import org.junit.Test;
 

@@ -1,8 +1,7 @@
-package sixteen;
+package interviews.questions.epi.sixteen;
 
 import base.InterviewQuestion;
 
-import javax.sound.midi.SysexMessage;
 import java.util.*;
 
 /**
