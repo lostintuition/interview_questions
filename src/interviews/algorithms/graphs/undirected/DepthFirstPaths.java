@@ -1,5 +1,8 @@
 package interviews.algorithms.graphs.undirected;
 
+import interviews.algorithms.graphs.Graph;
+import interviews.algorithms.graphs.Vertex;
+
 import java.util.*;
 
 public class DepthFirstPaths<T> implements Paths<T> {

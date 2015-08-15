@@ -1,9 +1,9 @@
 package graphs;
 
 import interviews.algorithms.graphs.undirected.ConnectedComponents;
-import interviews.algorithms.graphs.undirected.Graph;
+import interviews.algorithms.graphs.Graph;
 import interviews.algorithms.graphs.undirected.UndirectedGraph;
-import interviews.algorithms.graphs.undirected.Vertex;
+import interviews.algorithms.graphs.Vertex;
 import org.junit.Test;
 
 import java.util.*;

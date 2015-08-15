@@ -1,4 +1,4 @@
-package interviews.algorithms.graphs.undirected;
+package interviews.algorithms.graphs;
 
 import java.util.LinkedList;
 import java.util.List;

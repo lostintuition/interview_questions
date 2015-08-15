@@ -1,18 +1,18 @@
-package interviews.algorithms.graphs.undirected;
+package interviews.algorithms.graphs.directed;
 
 
-import interviews.algorithms.graphs.Graph;
 import interviews.algorithms.graphs.Vertex;
+import interviews.algorithms.graphs.Graph;
 
 import java.util.*;
 
-public class UndirectedGraph<T> implements Graph<T> {
+public class Digraph<T> implements Graph<T> {
 
     Map<T, Vertex<T>> vertexNameToVertex;
     private int numVertices;
     private int numEdges;
 
-    public UndirectedGraph() {
+    public Digraph() {
         vertexNameToVertex = new HashMap<>();
         numVertices = 0;
         numEdges = 0;
@@ -38,7 +38,6 @@ public class UndirectedGraph<T> implements Graph<T> {
         Vertex<T> endingVertex = vertexNameToVertex.get(endingVertexName);
 
         startingVertex.adjacentVertices.add(endingVertex);
-        endingVertex.adjacentVertices.add(startingVertex);
     }
 
     @Override
@@ -68,7 +67,7 @@ public class UndirectedGraph<T> implements Graph<T> {
     }
 
     public static Graph<Integer> tinyIntegerGraph() {
-        Graph<Integer> graph = new UndirectedGraph<>();
+        Graph<Integer> graph = new Digraph<>();
         for (int i = 0; i < 13; i++) {
             graph.addVertex(i);
         }

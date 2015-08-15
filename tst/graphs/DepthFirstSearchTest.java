@@ -1,7 +1,7 @@
 package graphs;
 
 import interviews.algorithms.graphs.undirected.DepthFirstSearch;
-import interviews.algorithms.graphs.undirected.Graph;
+import interviews.algorithms.graphs.Graph;
 import interviews.algorithms.graphs.undirected.UndirectedGraph;
 import org.junit.Test;
 

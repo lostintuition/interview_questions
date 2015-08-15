@@ -1,5 +1,7 @@
 package interviews.algorithms.graphs.undirected;
 
+import interviews.algorithms.graphs.Graph;
+
 import java.util.*;
 
 public class DepthFirstSearch<T> {

@@ -1,5 +1,6 @@
 package graphs;
 
+import interviews.algorithms.graphs.Graph;
 import interviews.algorithms.graphs.undirected.*;
 import org.junit.Test;
 

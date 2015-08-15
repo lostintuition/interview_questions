@@ -1,5 +1,8 @@
 package interviews.algorithms.graphs.undirected;
 
+import interviews.algorithms.graphs.Graph;
+import interviews.algorithms.graphs.Vertex;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;

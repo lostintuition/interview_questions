@@ -1,6 +1,6 @@
 package graphs;
 
-import interviews.algorithms.graphs.undirected.Graph;
+import interviews.algorithms.graphs.Graph;
 import interviews.algorithms.graphs.undirected.TwoColor;
 import interviews.algorithms.graphs.undirected.UndirectedGraph;
 import org.junit.Test;
