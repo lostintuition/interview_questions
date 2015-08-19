@@ -13,7 +13,7 @@ public class Vertex<T> {
 
     public Vertex(T value) {
         this.name = value;
-        this.adjacentVertices = new LinkedList<>();
+        this.adjacentVertices = new LinkedList<Vertex<T>>();
     }
 
     @Override

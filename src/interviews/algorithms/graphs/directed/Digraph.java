@@ -9,11 +9,13 @@ import java.util.*;
 public class Digraph<T> implements Graph<T> {
 
     Map<T, Vertex<T>> vertexNameToVertex;
+    Map<Vertex<T>, Deque<Vertex<T>>> vertexToAdjacentVertices;
     private int numVertices;
     private int numEdges;
 
     public Digraph() {
         vertexNameToVertex = new HashMap<>();
+        vertexToAdjacentVertices = new HashMap<>();
         numVertices = 0;
         numEdges = 0;
     }
@@ -37,18 +39,22 @@ public class Digraph<T> implements Graph<T> {
         Vertex<T> startingVertex = vertexNameToVertex.get(startingVertexName);
         Vertex<T> endingVertex = vertexNameToVertex.get(endingVertexName);
 
+        vertexToAdjacentVertices.get(startingVertex).push(endingVertex);
         startingVertex.adjacentVertices.add(endingVertex);
     }
 
     @Override
     public void addVertex(T vertexName) {
         numVertices++;
-        vertexNameToVertex.put(vertexName, new Vertex<>(vertexName));
+        Vertex<T> vertex = new Vertex<>(vertexName);
+        vertexNameToVertex.put(vertexName, vertex);
+        vertexToAdjacentVertices.put(vertex, new ArrayDeque<>());
     }
 
     @Override
-    public List<Vertex<T>> getAdjacentVertices(T vertexName) {
-        return vertexNameToVertex.get(vertexName).adjacentVertices;
+    public Collection<Vertex<T>> getAdjacentVertices(T vertexName) {
+        Vertex<T> vertex = vertexNameToVertex.get(vertexName);
+        return vertexToAdjacentVertices.get(vertex);
     }
 
     @Override
@@ -66,25 +72,34 @@ public class Digraph<T> implements Graph<T> {
         return new ArrayList<>(vertexNameToVertex.values());
     }
 
-    public static Graph<Integer> tinyIntegerGraph() {
-        Graph<Integer> graph = new Digraph<>();
+    public static Digraph<Integer> tinyIntegerGraph() {
+        Digraph<Integer> graph = new Digraph<>();
         for (int i = 0; i < 13; i++) {
             graph.addVertex(i);
         }
 
-        graph.addEdge(0, 6);
-        graph.addEdge(0, 2);
+        graph.addEdge(4, 2);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 2);
+        graph.addEdge(6, 0);
         graph.addEdge(0, 1);
-        graph.addEdge(0, 5);
-        graph.addEdge(3, 5);
-        graph.addEdge(3, 4);
-        graph.addEdge(4, 5);
-        graph.addEdge(4, 6);
-        graph.addEdge(7, 8);
+        graph.addEdge(2, 0);
+        graph.addEdge(11, 12);
+        graph.addEdge(12, 9);
         graph.addEdge(9, 10);
         graph.addEdge(9, 11);
-        graph.addEdge(9, 12);
-        graph.addEdge(11, 12);
+        graph.addEdge(8, 9);
+        graph.addEdge(10, 12);
+        graph.addEdge(11, 4);
+        graph.addEdge(4, 3);
+        graph.addEdge(3, 5);
+        graph.addEdge(7, 8);
+        graph.addEdge(8, 7);
+        graph.addEdge(5, 4);
+        graph.addEdge(0, 5);
+        graph.addEdge(6, 4);
+        graph.addEdge(6, 9);
+        graph.addEdge(7, 6);
 
         return graph;
     }

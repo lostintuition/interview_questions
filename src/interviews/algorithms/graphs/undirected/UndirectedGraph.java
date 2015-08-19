@@ -48,7 +48,7 @@ public class UndirectedGraph<T> implements Graph<T> {
     }
 
     @Override
-    public List<Vertex<T>> getAdjacentVertices(T vertexName) {
+    public Collection<Vertex<T>> getAdjacentVertices(T vertexName) {
         return vertexNameToVertex.get(vertexName).adjacentVertices;
     }
 

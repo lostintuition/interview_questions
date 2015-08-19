@@ -1,5 +1,6 @@
 package interviews.algorithms.graphs;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface Graph<T> {
@@ -12,7 +13,7 @@ public interface Graph<T> {
 
     void addVertex(T vertexName);
 
-    List<Vertex<T>> getAdjacentVertices(T vertexName);
+    Collection<Vertex<T>> getAdjacentVertices(T vertexName);
 
     String toString();
 
