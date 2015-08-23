@@ -59,19 +59,19 @@ public class EdgeWeightedGraph<T> {
             graph.addVertex(i);
         }
 
-        graph.addEdge(0, 6, 0);
-        graph.addEdge(0, 2, 0);
-        graph.addEdge(0, 1, 0);
-        graph.addEdge(0, 5, 0);
-        graph.addEdge(3, 5, 0);
-        graph.addEdge(3, 4, 0);
-        graph.addEdge(4, 5, 0);
-        graph.addEdge(4, 6, 0);
-        graph.addEdge(7, 8, 0);
-        graph.addEdge(9, 10, 0);
-        graph.addEdge(9, 11, 0);
-        graph.addEdge(9, 12, 0);
-        graph.addEdge(11, 12, 0);
+        graph.addEdge(0, 6, 1);
+        graph.addEdge(0, 2, 2);
+        graph.addEdge(0, 1, 3);
+        graph.addEdge(0, 5, 4);
+        graph.addEdge(3, 5, 5);
+        graph.addEdge(3, 4, 6);
+        graph.addEdge(4, 5, 7);
+        graph.addEdge(4, 6, 8);
+        graph.addEdge(7, 8, 9);
+        graph.addEdge(9, 10, 10);
+        graph.addEdge(9, 11, 11);
+        graph.addEdge(9, 12, 12);
+        graph.addEdge(11, 12, 13);
 
         return graph;
     }

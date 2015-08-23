@@ -2,24 +2,15 @@ package interviews.algorithms.uf;
 
 import org.junit.Test;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-/**
- * Created by garrsato on 8/22/15.
- */
-public class WeightedQuickUnionFindTest {
+public class WeightedIntegerQuickUnionFindTest {
+
     @Test
     public void testWeightedQuickUnionFind() {
-        List<Integer> elements = new LinkedList<>();
-        for (int i = 0; i < 10; i++) {
-            elements.add(i);
-        }
-        WeightedQuickUnionFind<Integer> uf = new WeightedQuickUnionFind<>(elements);
+        WeightedIntegerQuickUnionFind uf = new WeightedIntegerQuickUnionFind(10);
         uf.union(4,3);
         uf.union(3,8);
         uf.union(6,5);

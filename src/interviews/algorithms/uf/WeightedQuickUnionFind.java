@@ -1,22 +1,19 @@
 package interviews.algorithms.uf;
 
 
-public class WeightedQuickUnionFind {
+import java.util.*;
 
-    private int[] id;
+public class WeightedQuickUnionFind<T> {
     private int count;
-    private int[] size;
+    private Map<T, UnionFindElement> nameToElement;
 
-    public WeightedQuickUnionFind(int n) {
-        count = n;
-        id = new int[n];
-        for (int i = 0; i < n; i++) {
-            id[i] = i;
-        }
+    public WeightedQuickUnionFind(Collection<T> elements) {
+        count = elements.size();
+        nameToElement = new HashMap<>();
 
-        size = new int[n];
-        for (int i = 0; i < n; i++) {
-            size[i] = 1;
+        for (T element: elements) {
+            UnionFindElement unionFindElement = new UnionFindElement(element, element);
+            nameToElement.put(element, unionFindElement);
         }
     }
 
@@ -24,50 +21,64 @@ public class WeightedQuickUnionFind {
         return count;
     }
 
-    public boolean connected(int p, int q) {
-        return find(p) == find(q);
+    public boolean connected(T p, T q) {
+        return find(p).equals(find(q));
     }
 
-    public int find(int p) {
-        int root = findRoot(p);
+    public T find(T p) {
+        T root = findRoot(p);
         compressPath(p, root);
         return root;
     }
 
-    private int findRoot(int p) {
-        int current = p;
-        while (current != id[current]) {
-            current = id[current];
+    private T findRoot(T p) {
+        UnionFindElement current = nameToElement.get(p);
+        while (!current.name.equals((current.parent))) {
+            current = nameToElement.get(current.parent);
         }
 
-        return current;
+        return current.name;
     }
 
-    private void compressPath(int p, int root) {
-        int current = p;
-        while (current != id[current]) {
-            int parent = id[current];
-            id[current] = root;
-            current = parent;
+    private void compressPath(T p, T root) {
+        UnionFindElement current = nameToElement.get(p);
+        while (!current.name.equals(root)) {
+            T parent = current.parent;
+            current.parent = root;
+            current = nameToElement.get(parent);
         }
     }
 
 
-    public void union(int p, int q) {
-        int i = find(p);
-        int j = find(q);
-        if (i == j) {
+    public void union(T p, T q) {
+        UnionFindElement i = nameToElement.get(find(p));
+        UnionFindElement j = nameToElement.get(find(q));
+        if (i.name.equals(j.name)) {
             return;
         }
 
-        if (size[i] < size[j]) {
-            id[i] = j;
-            size[j] += size[i];
+        if (i.size < j.size) {
+            i.parent = j.name;
+            j.size += i.size;
         } else {
-            id[j] = i;
-            size[i] += size[j];
+            j.parent = i.name;
+            i.size += j.size;
+
         }
 
         count--;
+    }
+
+    private class UnionFindElement {
+
+        public T name;
+        public T parent;
+        public int size;
+
+        public UnionFindElement(T name, T parent) {
+            this.name = name;
+            this.parent = parent;
+            this.size = 1;
+        }
     }
 }

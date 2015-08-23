@@ -36,7 +36,7 @@ public class Edge<T> implements Comparable<Edge<T>>
         if (this.weight() < that.weight()) {
             return -1;
         } else if (this.weight() > that.weight()) {
-            return +1;
+            return 1;
         } else {
             return 0;
         }
