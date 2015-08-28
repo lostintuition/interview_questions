@@ -2,16 +2,14 @@ package interviews.algorithms.graphs.mst;
 
 import org.junit.Test;
 
-import java.util.PriorityQueue;
-
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.closeTo;
 import static org.junit.Assert.*;
 
-public class KruskalMstTest {
+public class LazyPrimMstTest {
 
     @Test
-    public void testKruskalMst() {
+    public void testLazyPrimMst() {
         EdgeWeightedGraph<Integer> edgeWeightedGraph = new EdgeWeightedGraph<>();
         for (int i = 0; i < 8; i++) {
             edgeWeightedGraph.addVertex(i);
@@ -25,9 +23,8 @@ public class KruskalMstTest {
         edgeWeightedGraph.addEdge(4, 5, .35);
         edgeWeightedGraph.addEdge(6, 2, .40);
 
-        KruskalMst<Integer> kruskalMst = new KruskalMst<>(edgeWeightedGraph);
+        LazyPrimMst<Integer> lazyPrimMst = new LazyPrimMst<>(edgeWeightedGraph);
 
-        assertThat(kruskalMst.weight(), is(equalTo(1.81)));
+        assertThat(lazyPrimMst.weight(), is(closeTo(1.81, .001)));
     }
-
 }

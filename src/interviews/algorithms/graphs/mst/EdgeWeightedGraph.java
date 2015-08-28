@@ -47,6 +47,10 @@ public class EdgeWeightedGraph<T> {
         return vertexNameToEdges.get(vertexName);
     }
 
+    public Collection<T> getVertices() {
+        return vertexNameToEdges.keySet();
+    }
+
     public Collection<Edge<T>> getEdges() {
         Set<Edge<T>> edges = new HashSet<>();
         vertexNameToEdges.values().forEach(edges::addAll);

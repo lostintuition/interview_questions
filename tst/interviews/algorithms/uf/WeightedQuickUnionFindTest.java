@@ -9,9 +9,6 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-/**
- * Created by garrsato on 8/22/15.
- */
 public class WeightedQuickUnionFindTest {
     @Test
     public void testWeightedQuickUnionFind() {
