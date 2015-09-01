@@ -22,6 +22,10 @@ public class DirectedEdge<T> implements Comparable<DirectedEdge<T>>
         return from;
     }
 
+    public T to() {
+        return to;
+    }
+
     public T other(T vertex) {
         return to;
     }
@@ -52,6 +56,6 @@ public class DirectedEdge<T> implements Comparable<DirectedEdge<T>>
     }
 
     public String toString() {
-        return String.format("%s-%s %.2f", from, to, weight);
+        return String.format("%s->%s %.2f", from, to, weight);
     }
 }
