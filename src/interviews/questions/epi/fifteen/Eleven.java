@@ -1,8 +1,8 @@
 package interviews.questions.epi.fifteen;
 
 import base.InterviewQuestion;
-import trees.BinarySearchTree;
-import trees.Node;
+import interviews.algorithms.trees.BinarySearchTree;
+import interviews.algorithms.trees.Node;
 
 /**
  * Design efficient algorithms for inserting and removing keys in a BST. Assume that all

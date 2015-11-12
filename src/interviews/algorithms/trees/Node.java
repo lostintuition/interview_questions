@@ -1,4 +1,4 @@
-package trees;
+package interviews.algorithms.trees;
 
 public class Node {
     public int key;
